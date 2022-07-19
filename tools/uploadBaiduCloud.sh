@@ -11,7 +11,7 @@ tokenFile=~/.baiduDiskTokenFile
 filePath=${1}
 uploadFilePath=${2}
 fileSize=$(ls -l ${filePath} | awk '{print $5}')
-fileSplitPath="/tmp/bdyDiskUpload/$(uuidgen | sed 's/-//g')/"
+fileSplitPath="/data/open-c3-installer/bdyDiskUpload/$(uuidgen | sed 's/-//g')/"
 
 refreshAccessToken="https://openapi.baidu.com/oauth/2.0/token?grant_type=refresh_token&"
 accessToken=

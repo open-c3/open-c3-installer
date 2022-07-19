@@ -1,6 +1,17 @@
 #!/bin/bash
 
-OPENC3VERSION=v2.6.1
+VER=v2.6.1
+TAG=v2.6.1
+TID=$(date +%Y%m%d.%H%M)
+
+ARG=$1
+
+if [ "X$ARG" != "X" ];then
+    TAG=$ARG
+    VER=$(echo $ARG|awk -F'-' '{print $1}')
+    TID=$(echo $ARG|awk -F'-' '{print $2}')
+fi
+
 
 if [ ! -d /data/open-c3-installer/dev-cache ];then
     cd /data/open-c3-installer && git clone https://github.com/open-c3/open-c3-dev-cache dev-cache
@@ -20,14 +31,16 @@ cd /data/open-c3-installer  && git clone https://github.com/open-c3/open-c3.gith
 
 
 rm -rf /data/open-c3-installer/open-c3
-cd /data/open-c3-installer  && git clone -b "$OPENC3VERSION" https://github.com/open-c3/open-c3
+cd /data/open-c3-installer  && git clone -b "$TAG" https://github.com/open-c3/open-c3
 
 
 /data/open-c3-installer/tools/image-save.sh
 
-UUID=$(date +%Y%m%d.%H%M)
+cd /data && tar -zcvf /data/open-c3-installer-$VER-$TID.tar.gz open-c3-installer
 
-cd /data && tar -zcvf /data/open-c3-installer-$OPENC3VERSION-$UUID.tar.gz open-c3-installer
-
-rm -rf /tmp/bdyDiskUpload
-/data/open-c3-installer/tools/uploadBaiduCloud.sh /data/open-c3-installer-$OPENC3VERSION-$UUID.tar.gz /open-c3-installer/$OPENC3VERSION/open-c3-installer-$OPENC3VERSION-$UUID.tar.gz
+if [ ! -f ~/.baiduDiskTokenFile ];then
+    echo not .baiduDiskTokenFile
+    exit
+fi
+rm -rf /data/open-c3-installer/bdyDiskUpload
+/data/open-c3-installer/tools/uploadBaiduCloud.sh /data/open-c3-installer-$VER-$TID.tar.gz /open-c3-installer/$VER/open-c3-installer-$VER-$TID.tar.gz
