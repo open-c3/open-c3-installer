@@ -1,0 +1,8 @@
+*.swp
+.DS_Store
+*.old
+book/
+dev-cache/
+dockerimage/
+install-cache/
+open-c3/
