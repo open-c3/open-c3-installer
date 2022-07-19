@@ -1,0 +1,10 @@
+#!/bin/bash
+
+ADDR=$1
+
+if [ "X$ADDR" == "X" ];then
+    echo $0 ip
+    exit
+fi
+
+/data/open-c3-installer/open-c3/open-c3.sh install $1
