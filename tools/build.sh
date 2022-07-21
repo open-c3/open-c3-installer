@@ -36,11 +36,12 @@ cd /data/open-c3-installer  && git clone -b "$TAG" https://github.com/open-c3/op
 
 /data/open-c3-installer/tools/image-save.sh
 
+rm -rf /data/open-c3-installer/bdyDiskUpload
 cd /data && tar -zcvf /data/open-c3-installer-$VER-$TID.tar.gz open-c3-installer
 
 if [ ! -f ~/.baiduDiskTokenFile ];then
     echo not .baiduDiskTokenFile
     exit
 fi
-rm -rf /data/open-c3-installer/bdyDiskUpload
+
 /data/open-c3-installer/tools/uploadBaiduCloud.sh /data/open-c3-installer-$VER-$TID.tar.gz /open-c3-installer/$VER/open-c3-installer-$VER-$TID.tar.gz
