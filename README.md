@@ -13,6 +13,9 @@ C3的一键安装命令会 下载git代码、下载nodejs依赖模块、下载do
 
 从[安装器网盘下载地址](https://pan.baidu.com/s/1888GjGrElqZm5qWPQ82hdw?pwd=6g75)下载一个最新的版本的文件。按照如下方式进行安装即可。
 
+* > 网盘地址1:  [点击进入](https://pan.baidu.com/s/1888GjGrElqZm5qWPQ82hdw?pwd=6g75)
+* > 网盘地址2:  [点击进入](https://pan.baidu.com/s/1NESiPnpwho_PnV0L5Hrcmw?pwd=yn6u)
+
 ## 安装方式
 
 下载一个最新的版本文件放到/data/目录下，如：/data/open-c3-installer-v2.6.1-20220718.2337.tar.gz
