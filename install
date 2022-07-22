@@ -7,4 +7,5 @@ if [ "X$ADDR" == "X" ];then
     exit
 fi
 
+/data/open-c3-installer/tools/image-load.sh 
 /data/open-c3-installer/open-c3/open-c3.sh install $1

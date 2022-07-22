@@ -7,3 +7,5 @@ dockerimage/
 install-cache/
 open-c3/
 bdyDiskUpload/
+t/.dbhost
+t/.myhost
