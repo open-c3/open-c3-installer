@@ -37,3 +37,5 @@ rm -rf /data/open-c3-installer/install-cache
 rm -rf /data/open-c3-installer/open-c3
 rm -rf /data/open-c3-installer/bdyDiskUpload
 
+rm -rf /data/open-c3
+rm -rf /data/open-c3-data
