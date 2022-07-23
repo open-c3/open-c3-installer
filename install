@@ -8,4 +8,10 @@ if [ "X$ADDR" == "X" ];then
 fi
 
 /data/open-c3-installer/tools/image-load.sh 
+
 /data/open-c3-installer/open-c3/open-c3.sh install $1
+
+/data/open-c3/open-c3.sh dup
+VERSION=$(cd /data/open-c3 && git branch|grep ^*|awk '{print $2}'|awk -F- '{print $1}')
+/data/open-c3/Installer/scripts/single/$VERSION.sh
+/data/open-c3/open-c3.sh start
