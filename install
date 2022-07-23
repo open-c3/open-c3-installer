@@ -9,9 +9,13 @@ fi
 
 /data/open-c3-installer/tools/image-load.sh 
 
-/data/open-c3-installer/open-c3/open-c3.sh install $1
+VERSION=$( cat /data/open-c3/installer.version | awk -F- '{print $1}' )
 
-/data/open-c3/open-c3.sh dup
-VERSION=$(cd /data/open-c3 && git branch|grep ^*|awk '{print $2}'|awk -F- '{print $1}')
+OPENC3VERSION=$VERSION /data/open-c3-installer/open-c3/open-c3.sh install $ADDR
+
+echo Wait for the Open-C3 to start
+sleep 60;
+
 /data/open-c3/Installer/scripts/single/$VERSION.sh
+/data/open-c3/open-c3.sh dup
 /data/open-c3/open-c3.sh start

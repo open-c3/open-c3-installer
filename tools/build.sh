@@ -44,4 +44,5 @@ if [ ! -f ~/.baiduDiskTokenFile ];then
     exit
 fi
 
+echo $TAG > /data/open-c3/installer.version
 /data/open-c3-installer/tools/uploadBaiduCloud.sh /data/open-c3-installer-$VER-$TID.tar.gz /open-c3-installer/$VER/open-c3-installer-$VER-$TID.tar.gz
