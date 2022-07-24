@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+TAG=$1
+
 DHOST=/data/open-c3-installer/t/.dbhost
 if [ ! -f $DHOST ];then
     echo nofind $DHOST
@@ -16,9 +18,15 @@ fi
 DH=`cat $DHOST`;
 LH=`cat $LHOST`
 
-scp $DH:/data/open-c3-installer-*.tar.gz /data/
 
-TF=`ls /data/open-c3-installer-*.tar.gz|tail -n 1`
+if [ "X$TAG" == "X" ];then
+    scp $DH:/data/open-c3-installer-*.tar.gz /data/
+    TF=`ls /data/open-c3-installer-*.tar.gz|tail -n 1`
+else
+    TF="/data/open-c3-installer-$TAG.tar.gz"
+    scp $DH:/data/$TF /data/
+fi
+
 echo $TF
 
 if [ "X$TF" == "X" ];then
