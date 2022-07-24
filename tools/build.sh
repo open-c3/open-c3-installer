@@ -32,6 +32,7 @@ cd /data/open-c3-installer  && git clone https://github.com/open-c3/open-c3.gith
 
 rm -rf /data/open-c3-installer/open-c3
 cd /data/open-c3-installer  && git clone -b "$TAG" https://github.com/open-c3/open-c3
+echo $TAG > /data/open-c3/open-c3-installer/installer.version
 
 
 /data/open-c3-installer/tools/image-save.sh
@@ -44,5 +45,6 @@ if [ ! -f ~/.baiduDiskTokenFile ];then
     exit
 fi
 
-echo $TAG > /data/open-c3/installer.version
-/data/open-c3-installer/tools/uploadBaiduCloud.sh /data/open-c3-installer-$VER-$TID.tar.gz /open-c3-installer/$VER/open-c3-installer-$VER-$TID.tar.gz
+if [ "X$UPLOAD" != "X" ];then
+    /data/open-c3-installer/tools/uploadBaiduCloud.sh /data/open-c3-installer-$VER-$TID.tar.gz /open-c3-installer/$VER/open-c3-installer-$VER-$TID.tar.gz
+fi
