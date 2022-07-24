@@ -9,3 +9,4 @@ open-c3/
 bdyDiskUpload/
 t/.dbhost
 t/.myhost
+tools/netctl/data

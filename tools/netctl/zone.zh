@@ -1,0 +1,15 @@
+#! /bin/bash
+
+data=/data/open-c3-installer/tools/netctl/data
+
+mkdir -p "$data/zone"
+
+if [ ! -f "$data/all-zones.tar.gz" ];then
+    cd $data && wget  --no-check-certificate https://www.ipdeny.com/ipblocks/data/countries/all-zones.tar.gz
+fi
+
+if [ ! -f "$data/zone/cn.zone" ];then
+    tar -zxvf "$data/all-zones.tar.gz" -C "$data/zone"
+fi
+
+cd $data/zone && ls |awk -F'.'  '{print $1}'
