@@ -24,7 +24,7 @@ if [ "X$TAG" == "X" ];then
     TF=`ls /data/open-c3-installer-*.tar.gz|tail -n 1`
 else
     TF="/data/open-c3-installer-$TAG.tar.gz"
-    scp $DH:/data/$TF /data/
+    scp $DH:$TF $TF
 fi
 
 echo $TF
