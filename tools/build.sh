@@ -32,7 +32,7 @@ cd /data/open-c3-installer  && git clone https://github.com/open-c3/open-c3.gith
 
 rm -rf /data/open-c3-installer/open-c3
 cd /data/open-c3-installer  && git clone -b "$TAG" https://github.com/open-c3/open-c3
-echo $TAG > /data/open-c3/open-c3-installer/installer.version
+echo $TAG > /data/open-c3-installer/open-c3/installer.version
 
 
 /data/open-c3-installer/tools/image-save.sh
