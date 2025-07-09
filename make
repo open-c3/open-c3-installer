@@ -104,14 +104,14 @@ tar -zcf "$TAR_NAME" "$(basename "$OUTPUT_DIR")" || {
 green "🎉 打包完成：$(realpath "$TAR_NAME")"
 echo "🔖 版本号：$VERSION_DIR"
 
-# ====== 可选上传或同步 ======
-if [ -x ../sync.sh ]; then
-    green "📤 检测到 sync.sh，开始执行同步操作 ..."
-    if ../sync.sh "$VERSION_DIR"; then
-        green "✅ 同步完成"
+# ====== 可选上传进行测试 ======
+if [ -x ../test.sh ]; then
+    green "📤 检测到 test.sh，开始执行测试操作 ..."
+    if ../test.sh "$VERSION_DIR"; then
+        green "✅ 测试完成"
     else
-        red "❌ 同步失败"
+        red "❌ 测试失败"
     fi
 else
-    echo "ℹ️  未找到可执行的 ../sync.sh，跳过同步"
+    echo "ℹ️  未找到可执行的 ../test.sh，跳过测试"
 fi

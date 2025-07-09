@@ -11,3 +11,5 @@ t/.dbhost
 t/.myhost
 tools/netctl/data
 data/
+test.txt
+sync.txt
